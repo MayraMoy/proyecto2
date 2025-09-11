@@ -1,24 +1,17 @@
 {
+  "products": [
+    {
+      "id": 1,
+      "name": "Producto 1",
+      "price": 100,
+      "description": "Descripción del producto 1"
+    }
+  ],
   "users": [
     {
-      "name": "Negin",
-      "username": "negin007",
-      "id": "1"
-    },
-    {
-      "name": "Craig",
-      "username": "benisphere",
-      "id": "2"
-    },
-    {
-      "name": "Ben",
-      "username": "siliconeidolon",
-      "id": "3"
-    },
-    {
-      "id": "2c27",
-      "name": "a",
-      "username": "a"
+      "id": 1,
+      "name": "Usuario 1",
+      "email": "user1@email.com"
     }
   ]
 }
