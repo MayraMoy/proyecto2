@@ -1,22 +1,48 @@
 import React from 'react';
-import { Routes, Route } from "react-router-dom";
-import Home from './components/Home';
-import EditUser from './components/EditUser';
-import AddUser from './components/AddUser';
+import { Routes, Route, Link } from "react-router-dom";
+import Home from './components/usser/Home';
+import EditUser from './components/usser/EditUser';
+import AddUser from './components/usser/AddUser';
+import HomeProduct from './components/product/HomeProduct';
+import EditProduct from './components/product/EditProduct';
+import AddProduct from './components/product/AddProduct';
 
 const App = () => {
   return (
     <>
       <blockquote className="text-2xl font-semibold italic text-center text-blue-500 my-10">
         <span className="mx-2 before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-400 relative inline-block">
-          <span className="relative text-white "> CRUD App </span>
+          <span className="relative text-white"> CRUD App </span>
         </span>
         with React Hooks
       </blockquote>
+      
+      {/* Navegación entre secciones */}
+      <nav className="flex justify-center space-x-4 mb-8">
+        <Link 
+          to="/" 
+          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
+        >
+          Users
+        </Link>
+        <Link 
+          to="/products" 
+          className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700"
+        >
+          Products
+        </Link>
+      </nav>
+
       <Routes>
+        {/* Rutas para Users */}
         <Route path='/' element={<Home />} />
         <Route path='/edit/:id' element={<EditUser />} />
-        <Route path='/create' element={< AddUser />} />
+        <Route path='/create' element={<AddUser />} />
+        
+        {/* Rutas para Products */}
+        <Route path='/products' element={<HomeProduct />} />
+        <Route path='/products/edit/:id' element={<EditProduct />} />
+        <Route path='/products/create' element={<AddProduct />} />
       </Routes>
     </>
   );
