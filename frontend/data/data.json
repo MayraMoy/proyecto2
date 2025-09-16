@@ -4,7 +4,8 @@
       "id": 1,
       "name": "Producto 1",
       "price": 100,
-      "description": "Descripción del producto 1"
+      "description": "Descripción del producto 1",
+      "proveedor_id": 1
     }
   ],
   "users": [
@@ -12,6 +13,15 @@
       "id": 1,
       "name": "Usuario 1",
       "email": "user1@email.com"
+    }
+  ],
+  "proveedores": [
+    {
+      "id": 1,
+      "nombre": "Proveedor 1",
+      "direccion": "Calle Falsa 123",
+      "telefono": "123456789",
+      "email": "proveedor1@email.com"
     }
   ]
 }

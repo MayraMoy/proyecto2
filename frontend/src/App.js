@@ -1,11 +1,12 @@
 import React from 'react';
 import { Routes, Route, Link } from "react-router-dom";
-import Home from './components/usser/Home';
-import EditUser from './components/usser/EditUser';
-import AddUser from './components/usser/AddUser';
+import Home from './components/proveedor/Home';
+import EditProveedor from './components/proveedor/EditProveedor';
+import AddProveedor from './components/proveedor/AddProveedor';
 import HomeProduct from './components/product/HomeProduct';
 import EditProduct from './components/product/EditProduct';
 import AddProduct from './components/product/AddProduct';
+
 
 const App = () => {
   return (
@@ -23,7 +24,7 @@ const App = () => {
           to="/" 
           className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
         >
-          Users
+          Proveedor
         </Link>
         <Link 
           to="/products" 
@@ -36,8 +37,8 @@ const App = () => {
       <Routes>
         {/* Rutas para Users */}
         <Route path='/' element={<Home />} />
-        <Route path='/edit/:id' element={<EditUser />} />
-        <Route path='/create' element={<AddUser />} />
+        <Route path='/edit/:id' element={<EditProveedor />} />
+        <Route path='/create' element={<AddProveedor />} />
         
         {/* Rutas para Products */}
         <Route path='/products' element={<HomeProduct />} />
