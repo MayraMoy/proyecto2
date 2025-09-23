@@ -1,9 +1,9 @@
-
 from flask import Flask
 from app.config import Config
 from app.extensions import db
 from flask_jwt_extended import JWTManager
 from flask_cors import CORS
+from app.routes.auth import auth_bp
 
 def create_app():
     app = Flask(__name__)
@@ -13,24 +13,10 @@ def create_app():
     db.init_app(app)
     JWTManager(app)
 
-    # Habilitar CORS para todas las rutas y todos los orígenes
-    CORS(app, resources={
-        r"/*": {
-            "origins": "*",
-            "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-            "allow_headers": ["Content-Type", "Authorization"]
-        }
-    })
-
-    # Importar modelos para que SQLAlchemy los reconozca
-    from app.models import User, Proveedor, Producto
+    # Habilitar CORS para todas las rutas y todos los orígenes (incluye métodos POST, DELETE, etc.)
+    CORS(app, resources={r"/*": {"origins": "*"}})
 
     # Registrar Blueprints
-    from app.routes.auth import auth_bp
-    app.register_blueprint(auth_bp, url_prefix='/api')
-
-    # Crear tablas si no existen
-    with app.app_context():
-        db.create_all()
+    app.register_blueprint(auth_bp)
 
     return app
