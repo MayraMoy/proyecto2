@@ -1,7 +1,14 @@
 import os
 
+# Carpeta raíz del proyecto (no solo /app)
+BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+
+# Ruta completa a la base de datos
+DB_PATH = os.path.join(BASE_DIR, "db_data", "app.db")
+
 class Config:
-    SECRET_KEY = os.environ.get("SECRET_KEY", "default_secret")
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL", "sqlite:///db.sqlite3")
+    # URI de conexión con la base de datos SQLite
+    SQLALCHEMY_DATABASE_URI = f"sqlite:///{DB_PATH}"
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    JWT_SECRET_KEY = os.environ.get("JWT_SECRET_KEY", "jwt_secret")
+
+    SECRET_KEY = os.getenv("SECRET_KEY", "dev_secret_key")
